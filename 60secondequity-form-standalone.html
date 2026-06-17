@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Check Your Equity Options | 60 Second Equity</title>
-  <meta name="description" content="Check what home equity options may be available without replacing your current mortgage." />
+  <meta name="description" content="Check what home equity options may be available without replacing your current mortgage. Digital HELOC — funds in as little as 3–5 days." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -149,6 +150,7 @@ a:hover { text-decoration: underline; }
 @media (max-width: 600px) {
   .site-header { padding: 0 16px; }
 }
+
 /* ===== FORM PAGE LAYOUT ===== */
 .form-page {
   background: var(--paper);
@@ -664,10 +666,35 @@ select.text-input {
   gap: 14px;
   transition: box-shadow 0.15s, transform 0.15s;
   background: var(--white);
+  position: relative;
 }
 .lender-card:hover {
   box-shadow: 0 4px 14px rgba(16,32,26,0.08);
   transform: translateY(-1px);
+}
+.lender-card-featured {
+  border-color: var(--emerald);
+  box-shadow: 0 0 0 1px var(--emerald), 0 4px 16px rgba(30,122,77,0.12);
+  padding-top: 28px;
+}
+.lender-featured-badge {
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  background: var(--emerald);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 0 0 8px 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lender-tag {
+  font-size: 12px;
+  color: var(--emerald-dark);
+  font-weight: 600;
+  margin-bottom: 3px;
 }
 .lender-logo {
   width: 52px;
@@ -752,31 +779,36 @@ select.text-input {
   .text-input.zip-input { width: 155px; font-size: 22px; }
   .options-grid.two-col { grid-template-columns: 1fr 1fr; }
 }
-  </style>
+
+</style>
 </head>
 <body>
 
 <header class="site-header">
   <a href="#" class="logo">60 <span class="sec">Second</span> <span class="eq">Equity</span></a>
-  <span style="font-size:13px;color:var(--stone);">Check Your Options</span>
+  <a href="#" class="header-cta">← Back to Article</a>
 </header>
 
 <main class="form-page">
   <div class="form-wrapper">
 
+    <!-- Trust bar -->
     <div class="form-trust-bar">
-      <div class="form-trust-item"><span class="icon">🔒</span> Secure &amp; Private</div>
+      <div class="form-trust-item"><span class="icon">🔒</span> Secure & Private</div>
       <div class="form-trust-item"><span class="icon">✅</span> No Credit Impact</div>
       <div class="form-trust-item"><span class="icon">⚡</span> Results in ~60 Seconds</div>
       <div class="form-trust-item"><span class="icon">🆓</span> 100% Free</div>
     </div>
 
+    <!-- Form Card -->
     <div class="form-card">
 
+      <!-- Progress Bar -->
       <div class="progress-bar-track">
         <div class="progress-bar-fill" id="progress-fill" style="width:7.14%"></div>
       </div>
 
+      <!-- Card Header -->
       <div class="form-card-header">
         <button class="back-btn" id="back-btn" type="button" aria-label="Go back">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -787,10 +819,12 @@ select.text-input {
         <span class="step-counter" id="step-counter">Step 1 of 14</span>
       </div>
 
+      <!-- Dynamic Form Body -->
       <div class="form-card-body">
         <div id="form-body"></div>
       </div>
 
+      <!-- Trust Badges -->
       <div class="trust-badges">
         <div class="trust-badge"><span class="badge-icon">🔒</span> 256-bit SSL</div>
         <div class="trust-badge"><span class="badge-icon">💳</span> No Credit Impact</div>
@@ -798,7 +832,7 @@ select.text-input {
         <div class="trust-badge"><span class="badge-icon">⭐</span> 4.8 / 5 Rating</div>
       </div>
 
-    </div>
+    </div><!-- /form-card -->
 
     <p style="text-align:center;font-size:11.5px;color:#8A968D;margin-top:16px;line-height:1.6;max-width:460px;margin-left:auto;margin-right:auto;">
       By submitting this form you consent to receive calls, emails, and texts from lenders.
@@ -1237,9 +1271,46 @@ function buildStep14() {
   const productLabel = { heloc: 'HELOC', home_equity_loan: 'Home Equity Loan', cash_out_refi: 'Cash-Out Refinance' };
   const creditLabel  = { excellent: 'Excellent (760+)', very_good: 'Very Good (720–759)', good: 'Good (680–719)', fair: 'Fair (640–679)', poor: 'Poor (Below 640)' };
   const lenders = [
-    { initials: 'FN', color: '#14402E', name: 'First National Bank',      rate: '6.49', details: 'No closing costs · Up to $500K · Min. 680 FICO' },
-    { initials: 'AC', color: '#1E7A4D', name: 'Apex Capital Home Loans',  rate: '6.74', details: '15-yr draw period · Fast digital closing · 24hr approval' },
-    { initials: 'EM', color: '#C9A24B', name: 'Empire Mortgage Group',    rate: '6.99', details: 'Fixed rate option · Borrow up to $750K · No prepay penalty' }
+    {
+      initials: 'RM',
+      color: '#CC0000',
+      badge: '#a80000',
+      name: 'Rocket Mortgage',
+      tag: '🏆 #1 Mortgage Lender',
+      rate: '7.49',
+      type: state.loanProduct === 'heloc' ? 'HELOC' : 'Home Equity Loan',
+      details: 'Fast digital close · Up to $500K · Min. 680 FICO · No prepay penalty'
+    },
+    {
+      initials: 'FG',
+      color: '#0A2240',
+      badge: '#1a3d6e',
+      name: 'Figure Lending',
+      tag: '⚡ Funds in as little as 5 days',
+      rate: '6.55',
+      type: 'HELOC',
+      details: '100% digital process · Fixed rate HELOC · No traditional appraisal needed'
+    },
+    {
+      initials: 'PM',
+      color: '#003B71',
+      badge: '#004f99',
+      name: 'PennyMac',
+      tag: '💰 Competitive low rates',
+      rate: '7.00',
+      type: state.loanProduct === 'heloc' ? 'HELOC' : 'Home Equity Loan',
+      details: 'Borrow up to $750K · 10-yr draw period · No annual fee'
+    },
+    {
+      initials: 'NR',
+      color: '#006B77',
+      badge: '#008a99',
+      name: 'NewRez',
+      tag: '✅ Flexible qualifying options',
+      rate: '7.25',
+      type: state.loanProduct === 'heloc' ? 'HELOC' : 'Home Equity Loan',
+      details: 'Multiple term options · Bank statement programs available · Fast approval'
+    }
   ];
   const loc = lookupZip(state.zipCode) || state.zipCode;
   return `
@@ -1252,16 +1323,18 @@ function buildStep14() {
       <div class="results-header">
         <span class="emoji">🎉</span>
         <h2>Great news, ${state.firstName || 'Homeowner'}!</h2>
-        <p>We found <strong>3 lenders</strong> matching your profile in ${loc}</p>
+        <p>We found <strong>${lenders.length} lenders</strong> matching your profile in ${loc}</p>
       </div>
-      ${lenders.map(l => `
-        <div class="lender-card">
-          <div class="lender-logo" style="background:${l.color}">${l.initials}</div>
+      ${lenders.map((l, i) => `
+        <div class="lender-card${i === 0 ? ' lender-card-featured' : ''}">
+          ${i === 0 ? '<div class="lender-featured-badge">Best Match</div>' : ''}
+          <div class="lender-logo" style="background:linear-gradient(135deg,${l.color},${l.badge})">${l.initials}</div>
           <div class="lender-info">
             <div class="lender-name">${l.name}</div>
+            <div class="lender-tag">${l.tag}</div>
             <div>
               <span class="lender-rate">${l.rate}%</span>
-              <span class="lender-rate-label">APR</span>
+              <span class="lender-rate-label">APR · ${l.type}</span>
             </div>
             <div class="lender-details">${l.details}</div>
           </div>
@@ -1505,6 +1578,7 @@ document.addEventListener('DOMContentLoaded', () => {
   render();
   document.getElementById('back-btn').addEventListener('click', prevStep);
 });
+
 </script>
 </body>
 </html>

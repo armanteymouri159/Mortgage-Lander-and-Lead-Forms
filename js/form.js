@@ -419,9 +419,46 @@ function buildStep14() {
   const productLabel = { heloc: 'HELOC', home_equity_loan: 'Home Equity Loan', cash_out_refi: 'Cash-Out Refinance' };
   const creditLabel  = { excellent: 'Excellent (760+)', very_good: 'Very Good (720–759)', good: 'Good (680–719)', fair: 'Fair (640–679)', poor: 'Poor (Below 640)' };
   const lenders = [
-    { initials: 'FN', color: '#14402E', name: 'First National Bank',      rate: '6.49', details: 'No closing costs · Up to $500K · Min. 680 FICO' },
-    { initials: 'AC', color: '#1E7A4D', name: 'Apex Capital Home Loans',  rate: '6.74', details: '15-yr draw period · Fast digital closing · 24hr approval' },
-    { initials: 'EM', color: '#C9A24B', name: 'Empire Mortgage Group',    rate: '6.99', details: 'Fixed rate option · Borrow up to $750K · No prepay penalty' }
+    {
+      initials: 'RM',
+      color: '#CC0000',
+      badge: '#a80000',
+      name: 'Rocket Mortgage',
+      tag: '🏆 #1 Mortgage Lender',
+      rate: '7.49',
+      type: state.loanProduct === 'heloc' ? 'HELOC' : 'Home Equity Loan',
+      details: 'Fast digital close · Up to $500K · Min. 680 FICO · No prepay penalty'
+    },
+    {
+      initials: 'FG',
+      color: '#0A2240',
+      badge: '#1a3d6e',
+      name: 'Figure Lending',
+      tag: '⚡ Funds in as little as 5 days',
+      rate: '6.55',
+      type: 'HELOC',
+      details: '100% digital process · Fixed rate HELOC · No traditional appraisal needed'
+    },
+    {
+      initials: 'PM',
+      color: '#003B71',
+      badge: '#004f99',
+      name: 'PennyMac',
+      tag: '💰 Competitive low rates',
+      rate: '7.00',
+      type: state.loanProduct === 'heloc' ? 'HELOC' : 'Home Equity Loan',
+      details: 'Borrow up to $750K · 10-yr draw period · No annual fee'
+    },
+    {
+      initials: 'NR',
+      color: '#006B77',
+      badge: '#008a99',
+      name: 'NewRez',
+      tag: '✅ Flexible qualifying options',
+      rate: '7.25',
+      type: state.loanProduct === 'heloc' ? 'HELOC' : 'Home Equity Loan',
+      details: 'Multiple term options · Bank statement programs available · Fast approval'
+    }
   ];
   const loc = lookupZip(state.zipCode) || state.zipCode;
   return `
@@ -434,16 +471,18 @@ function buildStep14() {
       <div class="results-header">
         <span class="emoji">🎉</span>
         <h2>Great news, ${state.firstName || 'Homeowner'}!</h2>
-        <p>We found <strong>3 lenders</strong> matching your profile in ${loc}</p>
+        <p>We found <strong>${lenders.length} lenders</strong> matching your profile in ${loc}</p>
       </div>
-      ${lenders.map(l => `
-        <div class="lender-card">
-          <div class="lender-logo" style="background:${l.color}">${l.initials}</div>
+      ${lenders.map((l, i) => `
+        <div class="lender-card${i === 0 ? ' lender-card-featured' : ''}">
+          ${i === 0 ? '<div class="lender-featured-badge">Best Match</div>' : ''}
+          <div class="lender-logo" style="background:linear-gradient(135deg,${l.color},${l.badge})">${l.initials}</div>
           <div class="lender-info">
             <div class="lender-name">${l.name}</div>
+            <div class="lender-tag">${l.tag}</div>
             <div>
               <span class="lender-rate">${l.rate}%</span>
-              <span class="lender-rate-label">APR</span>
+              <span class="lender-rate-label">APR · ${l.type}</span>
             </div>
             <div class="lender-details">${l.details}</div>
           </div>

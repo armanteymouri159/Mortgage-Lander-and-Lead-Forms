@@ -513,10 +513,35 @@ select.text-input {
   gap: 14px;
   transition: box-shadow 0.15s, transform 0.15s;
   background: var(--white);
+  position: relative;
 }
 .lender-card:hover {
   box-shadow: 0 4px 14px rgba(16,32,26,0.08);
   transform: translateY(-1px);
+}
+.lender-card-featured {
+  border-color: var(--emerald);
+  box-shadow: 0 0 0 1px var(--emerald), 0 4px 16px rgba(30,122,77,0.12);
+  padding-top: 28px;
+}
+.lender-featured-badge {
+  position: absolute;
+  top: -1px;
+  left: 16px;
+  background: var(--emerald);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 0 0 8px 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lender-tag {
+  font-size: 12px;
+  color: var(--emerald-dark);
+  font-weight: 600;
+  margin-bottom: 3px;
 }
 .lender-logo {
   width: 52px;
