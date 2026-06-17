@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Homeowners carrying high-interest credit card debt are using cash-out refinancing to roll it all into one lower monthly payment — and saving hundreds every month.">
+<title>60 Second Equity | The Quiet Way Homeowners Are Escaping Credit Card Debt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161C18;
+    --forest:#14402E;
+    --emerald:#1E7A4D;
+    --emerald-dark:#16613D;
+    --paper:#FCFBF8;
+    --sage:#EAF1EC;
+    --sage-deep:#DCE8DE;
+    --stone:#55605A;
+    --line:#E2E5DD;
+    --line-dark:#CDD3C9;
+    --gold:#C9A24B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden;padding-bottom:90px;}
+  .serif{font-family:'Fraunces',Georgia,serif;}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px;}
+  img{max-width:100%;display:block;}
+  h1,h2,h3,p,.dek{overflow-wrap:break-word;word-break:break-word;hyphens:auto;}
+  .speed .old,.speed .new{min-width:0;}
+  @media(min-width:720px){body{padding-bottom:0;}}
+
+  /* ===== utility bar ===== */
+  .util{background:var(--ink);color:#C3CDC6;font-size:12px;letter-spacing:.04em;}
+  .util .u{max-width:680px;margin:0 auto;padding:7px 22px;display:flex;justify-content:space-between;align-items:center;}
+  .util .sect{text-transform:uppercase;font-weight:600;color:#9DBCA9;}
+  .util .date{color:#8A968D;}
+
+  /* ===== masthead ===== */
+  .masthead{text-align:center;padding:18px 22px 14px;border-bottom:2px solid var(--ink);background:var(--paper);}
+  .masthead .name{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(26px,7vw,38px);letter-spacing:-.02em;color:var(--ink);line-height:1;}
+  .masthead .name b{color:var(--emerald);}
+  .masthead .tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--stone);margin-top:7px;}
+
+  /* sticky mini-masthead */
+  .ministicky{position:sticky;top:0;z-index:50;background:rgba(252,251,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform .3s;}
+  .ministicky.show{transform:translateY(0);}
+  .ministicky .m{max-width:680px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .ministicky .mn{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--ink);}
+  .ministicky .mn b{color:var(--emerald);}
+  .ministicky .mb{background:var(--emerald);color:#fff;border:none;cursor:pointer;font-weight:600;font-size:13px;padding:8px 15px;border-radius:999px;}
+
+  /* ===== article head ===== */
+  .ahead{padding:26px 0 0;}
+  .cat{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--emerald);border-bottom:2px solid var(--emerald);padding-bottom:3px;margin-bottom:18px;}
+  h1.head{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(30px,7vw,45px);line-height:1.1;letter-spacing:-.012em;color:var(--ink);margin-bottom:18px;}
+  .dek{font-size:clamp(18px,4.6vw,21px);line-height:1.5;color:var(--stone);font-weight:400;margin-bottom:24px;}
+  .dek b{color:var(--ink);font-weight:600;}
+
+  .byline{display:flex;align-items:center;gap:12px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .byline .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),var(--forest));display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:17px;flex:none;}
+  .byline .meta{flex:1;}
+  .byline .meta b{display:block;font-size:14.5px;color:var(--ink);}
+  .byline .meta span{font-size:13px;color:var(--stone);}
+  .byline .share{display:flex;gap:7px;}
+  .byline .share a{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-dark);display:grid;place-items:center;color:var(--stone);font-size:13px;text-decoration:none;transition:.2s;}
+  .byline .share a:hover{background:var(--sage);color:var(--emerald);border-color:var(--sage-deep);}
+
+  /* ===== hero photo ===== */
+  .hero-fig{margin:22px 0 6px;}
+  .hero-photo{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;background:linear-gradient(135deg,var(--sage),var(--sage-deep));}
+  .hero-fig figcaption{font-size:13px;color:var(--stone);font-style:italic;padding:10px 4px 0;line-height:1.5;}
+  .hero-fig figcaption b{font-style:normal;font-weight:600;color:var(--ink);}
+
+  .adlabel{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#9AA59D;text-align:center;padding:14px 0 2px;}
+
+  /* ===== article body ===== */
+  .body-wrap{padding-top:8px;}
+  p.body{font-size:18px;line-height:1.72;color:var(--ink);margin-bottom:20px;}
+  p.body.dim{color:#3F473F;}
+  p.lead-drop:first-letter{font-family:'Fraunces',serif;font-weight:700;float:left;font-size:62px;line-height:.82;padding:6px 12px 0 0;color:var(--emerald);}
+
+  h2.sec{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,5.8vw,32px);line-height:1.14;letter-spacing:-.012em;margin:34px 0 16px;color:var(--ink);}
+
+  /* speed stat / proof box */
+  .speed{margin:26px 0;padding:22px;background:linear-gradient(160deg,var(--forest),var(--emerald-dark));border-radius:16px;color:#fff;position:relative;overflow:hidden;}
+  .speed::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(201,162,75,.22),transparent 70%);}
+  .speed .row{display:flex;align-items:center;gap:14px;position:relative;z-index:1;}
+  .speed .old{flex:1;}
+  .speed .old .n{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:#9DBCA9;text-decoration:line-through;text-decoration-color:rgba(201,162,75,.8);}
+  .speed .old .l{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#9DBCA9;}
+  .speed .arrow{color:var(--gold);font-size:22px;}
+  .speed .new{flex:1;text-align:right;}
+  .speed .new .n{font-family:'Fraunces',serif;font-size:38px;font-weight:700;color:#fff;line-height:1;}
+  .speed .new .l{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#BFE0CD;}
+  .speed .cap{position:relative;z-index:1;margin-top:14px;font-size:13.5px;color:#CFE5D8;border-top:1px solid rgba(255,255,255,.14);padding-top:12px;}
+
+  /* inline photo */
+  .inline-fig{margin:28px 0;}
+  .inline-fig img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;background:linear-gradient(135deg,var(--sage),var(--sage-deep));}
+  .inline-fig figcaption{font-size:12.5px;color:var(--stone);font-style:italic;padding:9px 4px 0;}
+
+  /* pull quote */
+  .pq{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(21px,5.4vw,27px);line-height:1.3;color:var(--forest);border-left:4px solid var(--gold);padding:6px 0 6px 22px;margin:30px 0;font-style:italic;}
+
+  /* checklist */
+  .checks{list-style:none;margin:22px 0;}
+  .checks li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;font-size:17.5px;}
+  .checks .ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--sage);color:var(--emerald);display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:2px;}
+
+  /* amounts */
+  .amts{background:var(--ink);border-radius:16px;padding:24px 20px;margin:26px 0;}
+  .amts .t{color:#9DBCA9;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;text-align:center;}
+  .amts .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .amts .g{text-align:center;padding:13px 4px;background:rgba(255,255,255,.04);border-radius:10px;}
+  .amts .g .n{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(17px,5vw,23px);color:#fff;line-height:1;}
+  .amts .g .n.hl{color:var(--gold);}
+  @media(max-width:430px){.amts .grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* feature cards */
+  .feat{display:flex;gap:15px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;}
+  .feat .em{flex:none;width:46px;height:46px;border-radius:12px;background:var(--sage);display:grid;place-items:center;font-size:22px;}
+  .feat h3{font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin-bottom:4px;}
+  .feat p{font-size:15px;color:var(--stone);margin:0;}
+
+  /* rows */
+  .rows{list-style:none;margin:18px 0;}
+  .rows li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);font-size:17.5px;}
+  .rows li:last-child{border-bottom:none;}
+  .rows .ck{flex:none;color:var(--emerald);font-weight:700;margin-top:1px;}
+
+  /* inline CTA card */
+  .ctacard{background:#fff;border:1px solid var(--sage-deep);border-radius:16px;padding:24px 22px;margin:30px 0;box-shadow:0 4px 18px -10px rgba(20,64,46,.18);}
+  .ctacard .h{font-family:'Fraunces',serif;font-weight:600;font-size:20px;margin-bottom:6px;}
+  .ctacard .s{font-size:15px;color:var(--stone);margin-bottom:16px;}
+  .cta{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--emerald);color:#fff;border:none;cursor:pointer;font-family:'Inter';font-weight:600;font-size:17px;padding:17px 26px;border-radius:13px;box-shadow:0 10px 24px -8px rgba(30,122,77,.5);transition:transform .18s,background .2s;}
+  .cta:hover{background:var(--emerald-dark);transform:translateY(-2px);}
+  .cta .ar{transition:transform .2s;}
+  .cta:hover .ar{transform:translateX(4px);}
+  .cta-sub{text-align:center;font-size:12.5px;color:var(--stone);margin-top:11px;}
+
+  /* denied */
+  .denied{background:linear-gradient(160deg,#fff,var(--sage));border:1px solid var(--sage-deep);border-radius:16px;padding:24px 22px;margin:24px 0;}
+  .denied h2{margin-top:0;}
+
+  /* final */
+  .final{background:linear-gradient(160deg,var(--forest),var(--emerald-dark));border-radius:20px;padding:34px 24px;text-align:center;color:#fff;margin:30px 0;position:relative;overflow:hidden;}
+  .final::before{content:"";position:absolute;left:-50px;bottom:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(201,162,75,.18),transparent 70%);}
+  .final h2{color:#fff;position:relative;z-index:1;margin-top:0;}
+  .final p{color:#CFE5D8;position:relative;z-index:1;margin-bottom:22px;font-size:16px;}
+  .final .cta{position:relative;z-index:1;background:#fff;color:var(--forest);}
+  .final .cta:hover{background:var(--gold);color:var(--ink);}
+  .final .cta-sub{color:#9DBCA9;position:relative;z-index:1;}
+
+  /* faq */
+  details{border:1px solid var(--line);border-radius:12px;margin-bottom:11px;background:#fff;overflow:hidden;}
+  summary{font-family:'Fraunces',serif;font-weight:600;font-size:16.5px;padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--emerald);font-size:22px;font-family:'Inter';flex:none;}
+  details[open] summary::after{content:"–";}
+  details .ans{padding:0 18px 16px;color:var(--stone);font-size:15.5px;}
+
+  .trust{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;padding:22px 0 4px;}
+  .trust span{font-size:12.5px;color:var(--stone);display:inline-flex;align-items:center;gap:6px;}
+  .trust span::before{content:"●";color:var(--emerald);font-size:8px;}
+
+  footer{background:var(--ink);color:#8A968D;padding:32px 0 40px;margin-top:36px;}
+  footer .wrap{text-align:center;}
+  footer .fl{font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:14px;}
+  footer .fl b{color:var(--emerald);}
+  footer p{font-size:11.5px;line-height:1.7;color:#6E796F;}
+
+  /* sticky mobile CTA */
+  .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(252,251,248,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:11px 16px calc(11px + env(safe-area-inset-bottom));transform:translateY(120%);transition:transform .35s cubic-bezier(.2,.8,.2,1);}
+  .sticky-cta.show{transform:translateY(0);}
+  .sticky-cta .cta{padding:15px;font-size:16px;}
+  @media(min-width:720px){.sticky-cta{display:none;}}
+
+  .rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+
+<!-- utility bar -->
+<div class="util"><div class="u"><span class="sect">Personal Finance</span><span class="date" id="utilDate">Updated Today</span></div></div>
+
+<!-- masthead -->
+<div class="masthead">
+  <div class="name">60 Second <b>Equity</b></div>
+  <div class="tag">Practical Money News for Homeowners</div>
+</div>
+
+<!-- sticky mini masthead -->
+<div class="ministicky" id="ministicky">
+  <div class="m">
+    <div class="mn">60 Second <b>Equity</b></div>
+    <button class="mb" onclick="openForm()">Check My Rate</button>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- article head -->
+  <div class="ahead">
+    <span class="cat">Homeowner Finance</span>
+    <h1 class="head">How Homeowners Are Quietly Wiping Out Credit Card Debt — With One Lower Monthly Payment</h1>
+    <p class="dek">A cash-out refinance lets qualified homeowners replace several high-interest payments with <b>one lower fixed-rate payment</b> — and many are saving hundreds of dollars every month.</p>
+
+    <div class="byline">
+      <div class="av">RS</div>
+      <div class="meta">
+        <b>By Richard Steele</b>
+        <span>Senior Finance Correspondent · <span id="byDate">5 min read</span></span>
+      </div>
+      <div class="share">
+        <a href="#" onclick="return false" aria-label="Share">↗</a>
+        <a href="#" onclick="return false" aria-label="Save">🔖</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- hero photo -->
+  <figure class="hero-fig">
+    <img class="hero-photo" alt="A family relaxing at home, debt-free" loading="eager"
+      src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?q=80&w=1280&auto=format&fit=crop"
+      onerror="this.onerror=null;this.src=HERO_FALLBACK;">
+    <figcaption><b>One simple move.</b> For qualified homeowners, a cash-out refinance can replace a stack of high-interest bills with a single, more manageable monthly payment.</figcaption>
+  </figure>
+
+  <div class="adlabel">Advertisement · Sponsored Content</div>
+
+  <!-- body -->
+  <div class="body-wrap">
+    <p class="body lead-drop">Imagine paying $35,000 in credit card debt at 25% interest — minimum payments barely touching the balance, month after month, year after year.</p>
+
+    <p class="body dim">Now imagine rolling that entire balance — plus any other high-interest debt — into your mortgage at a fraction of what you were paying in interest. One payment. One rate. One bill each month instead of six.</p>
+
+    <p class="body dim">That's what a cash-out refinance can do for the right homeowner. And a growing number of people who own their homes are quietly doing exactly this.</p>
+
+    <div class="speed">
+      <div class="row">
+        <div class="old"><div class="n">Many bills</div><div class="l">at 20–29% interest</div></div>
+        <div class="arrow">→</div>
+        <div class="new"><div class="n">One payment</div><div class="l">lower fixed rate</div></div>
+      </div>
+      <div class="cap">Your home equity may let you consolidate high-interest debt into a single mortgage payment — potentially at a much lower rate than credit cards charge.</div>
+    </div>
+
+    <p class="body">The math is hard to argue with. <strong>Credit cards often charge 20% to 29% interest.</strong> A cash-out refi replaces that with a fixed mortgage rate — a fraction of what most cards charge. The balance doesn't disappear, but the monthly drain can shrink dramatically.</p>
+
+    <div class="ctacard">
+      <div class="h">See what rate you may qualify for</div>
+      <div class="s">A quick, no-obligation check. Takes about 60 seconds.</div>
+      <button class="cta" onclick="openForm()">Check My Options <span class="ar">→</span></button>
+      <div class="cta-sub">Fast digital check · No obligation · Availability varies</div>
+    </div>
+
+    <h2 class="sec">How a cash-out refi actually works</h2>
+    <p class="body">When you refinance your mortgage and take cash out, you're borrowing against the equity you've built in your home. Your existing mortgage gets replaced with a new one — at a new rate — and the difference comes to you as cash.</p>
+
+    <p class="pq">"You're not getting a second loan on top of your mortgage — you're replacing it with a new one that frees up equity you've already built."</p>
+
+    <p class="body dim">That cash can go directly toward wiping out high-interest debt. Many homeowners use it to clear credit cards, personal loans, medical bills, or any mix of expensive monthly obligations. And because mortgage rates are typically much lower than consumer debt rates, the monthly savings can be significant.</p>
+
+    <div class="amts">
+      <div class="t">Cash amounts homeowners are accessing</div>
+      <div class="grid">
+        <div class="g"><div class="n">$30K</div></div>
+        <div class="g"><div class="n">$75K</div></div>
+        <div class="g"><div class="n">$150K</div></div>
+        <div class="g"><div class="n hl">$300K+</div></div>
+      </div>
+    </div>
+
+    <!-- inline photo -->
+    <figure class="inline-fig">
+      <img alt="Couple reviewing finances on a laptop at the kitchen table" loading="lazy"
+        src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1100&auto=format&fit=crop"
+        onerror="this.onerror=null;this.src=INLINE_FALLBACK;">
+      <figcaption>Many homeowners use cash-out proceeds to consolidate high-interest debts and reduce their total monthly payment load.</figcaption>
+    </figure>
+
+    <h2 class="sec">Why homeowners are doing this now</h2>
+    <div class="feat"><div class="em">💳</div><div><h3>Replace 5 payments with 1</h3><p>Multiple credit card minimums, a personal loan, a car payment — all rolled into one fixed monthly mortgage payment.</p></div></div>
+    <div class="feat"><div class="em">📉</div><div><h3>Potentially pay far less in interest</h3><p>Credit cards often run 20–29% APR. A mortgage rate — even today's — is typically a fraction of that.</p></div></div>
+    <div class="feat"><div class="em">📅</div><div><h3>A fixed rate that won't spike</h3><p>Unlike variable credit card rates, a fixed-rate mortgage means your payment stays predictable for the life of the loan.</p></div></div>
+    <div class="feat"><div class="em">🏠</div><div><h3>Use equity you've already built</h3><p>You're not taking on new debt from scratch — you're redirecting value that's already sitting in your home.</p></div></div>
+    <div class="feat"><div class="em">🧠</div><div><h3>Simplify your financial life</h3><p>One due date. One servicer. One payment to track. For many homeowners, that simplicity alone is worth it.</p></div></div>
+
+    <div class="ctacard">
+      <div class="h">Find out if you may qualify</div>
+      <div class="s">We shop 200+ top lenders to find the best available deal for you.</div>
+      <button class="cta" onclick="openForm()">Check My Cash-Out Options <span class="ar">→</span></button>
+      <div class="cta-sub">No obligation · Takes about 60 seconds</div>
+    </div>
+
+    <h2 class="sec">Who this works best for</h2>
+    <p class="body dim">A cash-out refinance isn't the right move for everyone — but for homeowners who fit the profile, it can be a powerful reset. It tends to work well when:</p>
+    <ul class="rows">
+      <li><span class="ck">✓</span> You're carrying high-interest credit card or personal loan debt</li>
+      <li><span class="ck">✓</span> You have meaningful equity built up in your home</li>
+      <li><span class="ck">✓</span> The new monthly payment would be lower than what you're paying now across all debts combined</li>
+      <li><span class="ck">✓</span> You want a predictable, fixed-rate payment</li>
+      <li><span class="ck">✓</span> You plan to stay in the home long enough to benefit</li>
+    </ul>
+    <p class="body dim" style="font-size:14.5px;">Credit score, home equity, income, property type, location, and program availability can all affect your rate and eligibility.</p>
+
+    <h2 class="sec">What about credit score?</h2>
+    <div class="denied">
+      <p class="body" style="margin-bottom:10px;">The minimum bar is lower than many expect.</p>
+      <p class="body dim" style="margin-bottom:0;">While perfect credit isn't required, lenders typically look for a 580 or higher. The better your credit, the better your rate — but many programs are available even for borrowers who've had some credit challenges. What matters most is the equity position and your overall financial picture.</p>
+    </div>
+
+    <h2 class="sec">We shop 200+ lenders so you don't have to</h2>
+    <p class="body dim">Most homeowners apply to one or two lenders and accept whatever rate they're offered. We do things differently. When you check your options through 60 Second Equity, your profile gets compared against a wide network of top lenders — so you see competitive offers, not just the first number someone throws at you.</p>
+
+    <div class="final">
+      <h2 class="sec">Your debt doesn't have to stay this expensive</h2>
+      <p>It only takes about 60 seconds to see what your home equity could unlock.</p>
+      <button class="cta" onclick="openForm()">See My Cash-Out Options <span class="ar">→</span></button>
+      <div class="cta-sub">Takes about 60 seconds · No obligation · Availability varies</div>
+    </div>
+
+    <h2 class="sec">Common questions</h2>
+    <details><summary>Does this replace my existing mortgage?</summary><div class="ans">Yes. A cash-out refinance pays off your current mortgage and replaces it with a new loan at today's rate. You also receive the cash-out amount at closing.</div></details>
+    <details><summary>How much cash can I access?</summary><div class="ans">Generally up to 80% of your home's value, minus what you still owe. The exact amount depends on your equity, credit, and the lender's program guidelines.</div></details>
+    <details><summary>What credit score do I need?</summary><div class="ans">Most programs start at 580, with better rates available above 620. The higher your score, the more competitive your options tend to be.</div></details>
+    <details><summary>Can I use the cash for anything?</summary><div class="ans">Yes — most lenders don't restrict how you use cash-out proceeds. Common uses include paying off high-interest debt, home improvements, or general financial flexibility.</div></details>
+    <details><summary>How long does the process take?</summary><div class="ans">Timelines vary by lender and loan complexity, but many cash-out refis close in 30 to 45 days. Checking your options takes about 60 seconds.</div></details>
+    <details><summary>Will checking my options affect my credit?</summary><div class="ans">Checking your options through this process won't affect your credit score. A hard inquiry typically only occurs when you formally apply with a lender.</div></details>
+
+    <div class="trust"><span>No obligation</span><span>200+ lenders</span><span>Fixed-rate options</span></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fl">60 Second <b>Equity</b></div>
+    <p>60SecondEquity.com is an informational marketing website and sponsored content. This is not a commitment to lend or extend credit. All loans are subject to credit approval, underwriting guidelines, program availability, property eligibility, state availability, and borrower qualification. Not all applicants will qualify. Rates, terms, and fees vary by borrower profile, property, lender, and program. Cash-out refinancing replaces your existing mortgage with a new loan; you may pay more interest over the life of the loan. Results are not guaranteed. Checking options does not guarantee approval or funding.</p>
+  </div>
+</footer>
+
+<!-- sticky mobile CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <button class="cta" onclick="openForm()">Check My Cash-Out Options · 60 sec <span class="ar">→</span></button>
+</div>
+
+<script>
+  var HERO_FALLBACK="data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B5138"/><stop offset="1" stop-color="#14402E"/></linearGradient><radialGradient id="s" cx="78%" cy="22%" r="40%"><stop offset="0" stop-color="#C9A24B" stop-opacity=".55"/><stop offset="1" stop-color="#C9A24B" stop-opacity="0"/></radialGradient></defs><rect width="1280" height="800" fill="url(#g)"/><rect width="1280" height="800" fill="url(#s)"/><g transform="translate(640 400)" fill="none" stroke="#EAF1EC" stroke-width="9" stroke-linejoin="round" stroke-linecap="round" opacity=".9"><rect x="-120" y="-60" width="240" height="160" rx="12"/><line x1="-80" y1="-60" x2="-80" y2="100"/><line x1="80" y1="-60" x2="80" y2="100"/><line x1="-120" y1="20" x2="120" y2="20"/><text x="0" y="-10" font-family="Georgia,serif" font-size="28" fill="#CFE5D8" text-anchor="middle" stroke="none">$</text></g><text x="640" y="640" font-family="Georgia,serif" font-size="40" fill="#CFE5D8" text-anchor="middle" opacity=".9">One lower payment</text></svg>');
+  var INLINE_FALLBACK="data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 733"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAF1EC"/><stop offset="1" stop-color="#DCE8DE"/></linearGradient></defs><rect width="1100" height="733" fill="url(#g2)"/><g transform="translate(550 350)" fill="none" stroke="#1E7A4D" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".8"><path d="M-100 0 L-60 -60 L0 40 L60 -20 L100 20"/></g><text x="550" y="590" font-family="Georgia,serif" font-size="34" fill="#55605A" text-anchor="middle">A smarter way to manage debt</text></svg>');
+
+  (function(){
+    var d=new Date();
+    var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var label=months[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+    document.getElementById('utilDate').textContent='Updated '+label;
+    document.getElementById('byDate').textContent=label+' · 5 min read';
+  })();
+
+  var FORM_URL="cashout-quiz.html";
+  function openForm(){ window.location.href=FORM_URL; }
+
+  var sticky=document.getElementById('stickyCta'), mini=document.getElementById('ministicky');
+  window.addEventListener('scroll',function(){
+    var y=window.scrollY;
+    if(y>620){sticky.classList.add('show');}else{sticky.classList.remove('show');}
+    if(y>340){mini.classList.add('show');}else{mini.classList.remove('show');}
+  },{passive:true});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.1});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+</script>
+</body>
+</html>

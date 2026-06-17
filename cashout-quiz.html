@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check your cash-out refinance options — compare lenders in minutes.">
+<title>Check Your Cash-Out Refi Options | 60 Second Equity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161C18;--forest:#14402E;--emerald:#1E7A4D;--emerald-dark:#16613D;
+    --paper:#FCFBF8;--sage:#EAF1EC;--sage-deep:#DCE8DE;--stone:#55605A;
+    --line:#E2E5DD;--line-dark:#CDD3C9;--gold:#C9A24B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.55;min-height:100vh;display:flex;flex-direction:column;}
+  .serif{font-family:'Fraunces',Georgia,serif;}
+
+  /* top bar */
+  .top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top);}
+  .top .t{max-width:560px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px;}
+  .back{background:none;border:none;cursor:pointer;font-size:24px;color:var(--stone);line-height:1;padding:4px 6px;border-radius:8px;transition:.2s;flex:none;}
+  .back:hover{background:var(--sage);color:var(--emerald);}
+  .back[disabled]{opacity:0;pointer-events:none;}
+  .brand{font-family:'Fraunces',serif;font-weight:700;font-size:18px;color:var(--ink);flex:1;text-align:center;}
+  .brand b{color:var(--emerald);}
+  .stepcount{font-size:12px;color:var(--stone);font-weight:600;flex:none;min-width:64px;text-align:right;}
+  .pbar{height:4px;background:var(--sage-deep);}
+  .pbar .fill{height:100%;background:var(--emerald);width:12%;transition:width .4s cubic-bezier(.2,.8,.2,1);}
+
+  /* stage */
+  .stage{flex:1;display:flex;flex-direction:column;}
+  .screen{max-width:560px;margin:0 auto;width:100%;padding:30px 20px 24px;display:none;animation:in .35s ease;}
+  .screen.active{display:block;}
+  @keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald);margin-bottom:12px;}
+  h2.q{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,6.4vw,32px);line-height:1.15;letter-spacing:-.01em;margin-bottom:8px;overflow-wrap:break-word;word-break:break-word;hyphens:auto;}
+  .qsub{font-size:15px;color:var(--stone);margin-bottom:24px;}
+
+  /* option cards */
+  .opts{display:flex;flex-direction:column;gap:11px;}
+  .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line-dark);border-radius:14px;padding:17px 18px;cursor:pointer;font-family:'Inter';font-size:17px;font-weight:500;color:var(--ink);transition:border-color .18s,background .18s,transform .12s;}
+  .opt:hover{border-color:var(--emerald);background:var(--sage);}
+  .opt:active{transform:scale(.99);}
+  .opt.sel{border-color:var(--emerald);background:var(--sage);box-shadow:inset 0 0 0 1px var(--emerald);}
+  .opt .ic{flex:none;width:40px;height:40px;border-radius:10px;background:var(--sage);display:grid;place-items:center;font-size:21px;}
+  .opt.sel .ic{background:#fff;}
+  .opt .arrow{margin-left:auto;color:var(--line-dark);font-size:18px;transition:.2s;}
+  .opt:hover .arrow{color:var(--emerald);transform:translateX(3px);}
+
+  /* inputs */
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:7px;}
+  .inp{width:100%;padding:16px;border:1.5px solid var(--line-dark);border-radius:12px;font-family:'Inter';font-size:18px;background:#fff;transition:border-color .2s;}
+  .inp:focus{outline:none;border-color:var(--emerald);}
+  .inp.big{font-family:'Fraunces',serif;font-weight:600;font-size:26px;text-align:center;letter-spacing:-.01em;}
+  .row2{display:flex;gap:11px;}
+  .row2 .field{flex:1;min-width:0;}
+
+  /* primary button */
+  .btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--emerald);color:#fff;border:none;cursor:pointer;font-family:'Inter';font-weight:600;font-size:17px;padding:17px;border-radius:13px;box-shadow:0 10px 22px -10px rgba(30,122,77,.6);transition:transform .16s,background .2s;margin-top:6px;}
+  .btn:hover{background:var(--emerald-dark);transform:translateY(-1px);}
+  .btn[disabled]{background:var(--line-dark);box-shadow:none;cursor:not-allowed;transform:none;}
+
+  /* trust footer */
+  .trust{max-width:560px;margin:0 auto;width:100%;padding:14px 20px calc(26px + env(safe-area-inset-bottom));}
+  .trust .lock{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--stone);background:var(--sage);border-radius:10px;padding:11px;}
+  .trust .lock b{color:var(--forest);font-weight:600;}
+
+  /* value helper chips */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .chip{border:1.5px solid var(--line-dark);background:#fff;border-radius:999px;padding:9px 15px;font-size:14px;font-weight:600;color:var(--stone);cursor:pointer;transition:.18s;}
+  .chip:hover{border-color:var(--emerald);color:var(--emerald);background:var(--sage);}
+
+  .note{font-size:13px;color:var(--stone);margin-top:14px;text-align:center;}
+
+  /* loading match */
+  .loader{max-width:560px;margin:0 auto;width:100%;padding:60px 20px;text-align:center;display:none;}
+  .loader.active{display:block;animation:in .35s ease;}
+  .ring{width:64px;height:64px;border:5px solid var(--sage-deep);border-top-color:var(--emerald);border-radius:50%;margin:0 auto 24px;animation:spin 1s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .loader h2{font-family:'Fraunces',serif;font-weight:600;font-size:24px;margin-bottom:10px;}
+  .loader p{color:var(--stone);font-size:15px;}
+  .lsteps{margin-top:26px;text-align:left;max-width:300px;margin-left:auto;margin-right:auto;}
+  .lstep{display:flex;align-items:center;gap:12px;padding:9px 0;font-size:15px;color:var(--stone);opacity:.4;transition:opacity .4s;}
+  .lstep.on{opacity:1;color:var(--ink);}
+  .lstep .c{width:22px;height:22px;border-radius:50%;background:var(--emerald);color:#fff;display:grid;place-items:center;font-size:12px;flex:none;}
+
+  /* success */
+  .done{max-width:560px;margin:0 auto;width:100%;padding:50px 20px;text-align:center;display:none;}
+  .done.active{display:block;animation:in .35s ease;}
+  .done .big{width:74px;height:74px;border-radius:50%;background:var(--sage);display:grid;place-items:center;margin:0 auto 22px;}
+  .done .big .c{width:48px;height:48px;border-radius:50%;background:var(--emerald);display:grid;place-items:center;color:#fff;font-size:26px;}
+  .done h2{font-family:'Fraunces',serif;font-weight:600;font-size:28px;margin-bottom:12px;}
+  .done p{color:var(--stone);font-size:16px;max-width:380px;margin:0 auto 8px;}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="t">
+    <button class="back" id="backBtn" disabled onclick="goBack()" aria-label="Back">←</button>
+    <div class="brand">60 Second <b>Equity</b></div>
+    <div class="stepcount" id="stepCount">Step 1 of 8</div>
+  </div>
+  <div class="pbar"><div class="fill" id="pfill"></div></div>
+</div>
+
+<div class="stage">
+
+  <!-- 1: property type -->
+  <section class="screen active" data-step="1">
+    <div class="eyebrow">Your Property</div>
+    <h2 class="q">What type of property do you own?</h2>
+    <p class="qsub">This helps match you with the right programs.</p>
+    <div class="opts">
+      <button class="opt" onclick="pick(this,'propertyType','Single-family home')"><span class="ic">🏠</span>Single-family home<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'propertyType','Townhome')"><span class="ic">🏘️</span>Townhome<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'propertyType','Condominium')"><span class="ic">🏢</span>Condominium<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'propertyType','Multi-family')"><span class="ic">🏬</span>Multi-family<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'propertyType','Manufactured / mobile')"><span class="ic">🚍</span>Manufactured / mobile<span class="arrow">→</span></button>
+    </div>
+  </section>
+
+  <!-- 2: property use -->
+  <section class="screen" data-step="2">
+    <div class="eyebrow">Your Property</div>
+    <h2 class="q">How do you use this property?</h2>
+    <div class="opts">
+      <button class="opt" onclick="pick(this,'propertyUse','Primary residence')"><span class="ic">🛋️</span>Primary residence<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'propertyUse','Secondary / vacation home')"><span class="ic">⛱️</span>Secondary / vacation home<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'propertyUse','Investment / rental')"><span class="ic">🔑</span>Investment / rental<span class="arrow">→</span></button>
+    </div>
+  </section>
+
+  <!-- 3: purpose -->
+  <section class="screen" data-step="3">
+    <div class="eyebrow">Your Goal</div>
+    <h2 class="q">What would you use the cash for?</h2>
+    <p class="qsub">Most common use is paying off high-interest debt.</p>
+    <div class="opts">
+      <button class="opt" onclick="pick(this,'purpose','Pay off debt')"><span class="ic">💳</span>Pay off high-interest debt<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'purpose','Home improvement')"><span class="ic">🔨</span>Home improvement or renovation<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'purpose','Cash out / reserves')"><span class="ic">💵</span>Cash on hand / financial cushion<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'purpose','Large purchase')"><span class="ic">💰</span>A large purchase or expense<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'purpose','Other')"><span class="ic">✨</span>Something else<span class="arrow">→</span></button>
+    </div>
+  </section>
+
+  <!-- 4: zip -->
+  <section class="screen" data-step="4">
+    <div class="eyebrow">Your Property</div>
+    <h2 class="q">What's the property ZIP code?</h2>
+    <p class="qsub">Available programs and rates can vary by location.</p>
+    <div class="field">
+      <input class="inp big" id="zip" inputmode="numeric" maxlength="5" placeholder="92618" oninput="zipGuard(this)">
+    </div>
+    <button class="btn" id="zipBtn" disabled onclick="next()">Continue →</button>
+  </section>
+
+  <!-- 5: home value -->
+  <section class="screen" data-step="5">
+    <div class="eyebrow">Your Equity</div>
+    <h2 class="q">What's your home worth today?</h2>
+    <p class="qsub">Your best estimate is all we need.</p>
+    <div class="field">
+      <input class="inp big" id="homeValue" inputmode="numeric" placeholder="$500,000" oninput="money(this);check('homeValue','valBtn')">
+    </div>
+    <div class="chips">
+      <button class="chip" onclick="setMoney('homeValue','250000','valBtn')">$250k</button>
+      <button class="chip" onclick="setMoney('homeValue','400000','valBtn')">$400k</button>
+      <button class="chip" onclick="setMoney('homeValue','600000','valBtn')">$600k</button>
+      <button class="chip" onclick="setMoney('homeValue','900000','valBtn')">$900k</button>
+    </div>
+    <button class="btn" id="valBtn" disabled onclick="next()" style="margin-top:20px;">Continue →</button>
+  </section>
+
+  <!-- 6: mortgage balance -->
+  <section class="screen" data-step="6">
+    <div class="eyebrow">Your Equity</div>
+    <h2 class="q">How much do you still owe on your mortgage?</h2>
+    <p class="qsub">Your remaining balance. Enter $0 if your home is paid off.</p>
+    <div class="field">
+      <input class="inp big" id="balance" inputmode="numeric" placeholder="$300,000" oninput="money(this);check('balance','balBtn')">
+    </div>
+    <button class="btn" id="balBtn" disabled onclick="next()">Continue →</button>
+  </section>
+
+  <!-- 7: credit -->
+  <section class="screen" data-step="7">
+    <div class="eyebrow">About You</div>
+    <h2 class="q">How's your credit?</h2>
+    <p class="qsub">A rough range is fine — this won't affect your score.</p>
+    <div class="opts">
+      <button class="opt" onclick="pick(this,'credit','Excellent (720+)')"><span class="ic">⭐</span>Excellent — 720+<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'credit','Good (620–719)')"><span class="ic">👍</span>Good — 620 to 719<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'credit','Fair (580–619)')"><span class="ic">🙂</span>Fair — 580 to 619<span class="arrow">→</span></button>
+      <button class="opt" onclick="pick(this,'credit','Below 580')"><span class="ic">🌱</span>Below 580 / not sure<span class="arrow">→</span></button>
+    </div>
+  </section>
+
+  <!-- 8: contact (final) -->
+  <section class="screen" data-step="8">
+    <div class="eyebrow">Last Step</div>
+    <h2 class="q">Where should we send your options?</h2>
+    <p class="qsub">A specialist will reach out with programs that may be available to you.</p>
+    <div class="row2">
+      <div class="field"><label>First name</label><input class="inp" id="firstName" placeholder="John" oninput="checkContact()"></div>
+      <div class="field"><label>Last name</label><input class="inp" id="lastName" placeholder="Smith" oninput="checkContact()"></div>
+    </div>
+    <div class="field"><label>Email</label><input class="inp" id="email" type="email" placeholder="john@example.com" oninput="checkContact()"></div>
+    <div class="field"><label>Phone</label><input class="inp" id="phone" type="tel" placeholder="(555) 123-4567" oninput="checkContact()"></div>
+    <button class="btn" id="submitBtn" disabled onclick="submitLead()">See My Options →</button>
+    <p class="note">By submitting, you agree to be contacted about your inquiry. No obligation.</p>
+  </section>
+
+  <!-- loading -->
+  <div class="loader" id="loader">
+    <div class="ring"></div>
+    <h2 class="serif">Reviewing your cash-out options…</h2>
+    <p>Matching your profile with available programs.</p>
+    <div class="lsteps">
+      <div class="lstep" id="ls1"><span class="c">✓</span> Reviewing your property details</div>
+      <div class="lstep" id="ls2"><span class="c">✓</span> Calculating available equity</div>
+      <div class="lstep" id="ls3"><span class="c">✓</span> Matching eligible lenders</div>
+    </div>
+  </div>
+
+  <!-- success -->
+  <div class="done" id="done">
+    <div class="big"><div class="c">✓</div></div>
+    <h2 class="serif">You're all set</h2>
+    <p>Thanks — we've received your information. A specialist will reach out shortly to walk through the cash-out refinance options that may be available to you.</p>
+  </div>
+
+</div>
+
+<div class="trust" id="trust">
+  <div class="lock">🔒 <span><b>Your information is secure.</b> Checking your options won't affect your credit score.</span></div>
+</div>
+
+<script>
+  var TOTAL=8;
+  var step=1;
+  var data={};
+
+  function render(){
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.toggle('active',+s.dataset.step===step);});
+    document.getElementById('pfill').style.width=(step/TOTAL*100)+'%';
+    document.getElementById('stepCount').textContent='Step '+step+' of '+TOTAL;
+    document.getElementById('backBtn').disabled=(step===1);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  function next(){ if(step<TOTAL){step++;render();} }
+  function goBack(){ if(step>1){step--;render();} }
+
+  function pick(el,key,val){
+    data[key]=val;
+    var parent=el.closest('.opts');
+    parent.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel');});
+    el.classList.add('sel');
+    setTimeout(next,180);
+  }
+
+  function zipGuard(el){
+    el.value=el.value.replace(/[^0-9]/g,'').slice(0,5);
+    var ok=el.value.length===5;
+    document.getElementById('zipBtn').disabled=!ok;
+    if(ok)data.zip=el.value;
+  }
+  function money(el){
+    var v=el.value.replace(/[^0-9]/g,'');
+    el.value=v?'$'+Number(v).toLocaleString('en-US'):'';
+    el.dataset.raw=v;
+  }
+  function setMoney(id,val,btn){
+    var el=document.getElementById(id);
+    el.value='$'+Number(val).toLocaleString('en-US');el.dataset.raw=val;
+    check(id,btn);
+  }
+  function check(id,btn){
+    var raw=document.getElementById(id).dataset.raw||'';
+    var ok=raw.length>0&&Number(raw)>0;
+    if(id==='balance')ok=raw.length>0;
+    document.getElementById(btn).disabled=!ok;
+    if(ok)data[id]=document.getElementById(id).value;
+  }
+  function checkContact(){
+    var f=document.getElementById('firstName').value.trim();
+    var l=document.getElementById('lastName').value.trim();
+    var e=document.getElementById('email').value.trim();
+    var p=document.getElementById('phone').value.trim();
+    var ok=f&&l&&/.+@.+\..+/.test(e)&&p.replace(/\D/g,'').length>=10;
+    document.getElementById('submitBtn').disabled=!ok;
+  }
+
+  function submitLead(){
+    data.firstName=document.getElementById('firstName').value;
+    data.lastName=document.getElementById('lastName').value;
+    data.email=document.getElementById('email').value;
+    data.phone=document.getElementById('phone').value;
+    data.product='cash-out-refi';
+
+    // === HOOK YOUR LEAD DESTINATION HERE ===
+    // e.g. fetch('https://your-endpoint', {method:'POST', body: JSON.stringify(data)})
+    console.log('LEAD', data);
+
+    document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');});
+    document.getElementById('trust').style.display='none';
+    document.getElementById('backBtn').style.visibility='hidden';
+    document.getElementById('stepCount').style.visibility='hidden';
+    document.getElementById('pfill').style.width='100%';
+    var loader=document.getElementById('loader');loader.classList.add('active');
+    setTimeout(function(){document.getElementById('ls1').classList.add('on');},250);
+    setTimeout(function(){document.getElementById('ls2').classList.add('on');},1100);
+    setTimeout(function(){document.getElementById('ls3').classList.add('on');},1950);
+    setTimeout(function(){loader.classList.remove('active');document.getElementById('done').classList.add('active');},2900);
+  }
+
+  // pre-fill ZIP from URL (?zip=92618 or ?PropertyAddressZipCode=92618)
+  (function(){
+    var p=new URLSearchParams(location.search);
+    var z=p.get('zip')||p.get('PropertyAddressZipCode');
+    if(z&&/^\d{5}$/.test(z)){var el=document.getElementById('zip');if(el){el.value=z;zipGuard(el);}}
+  })();
+
+  render();
+</script>
+</body>
+</html>
