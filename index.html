@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Check what home equity options may be available without replacing your current mortgage. Digital HELOC — funds in as little as 3–5 days.">
+<title>60 Second Equity | Digital HELOC Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10201A;
+    --forest:#14402E;
+    --emerald:#1E7A4D;
+    --emerald-bright:#23925C;
+    --emerald-dark:#16613D;
+    --paper:#FBFAF6;
+    --sage:#EAF1EC;
+    --sage-deep:#DCE8DE;
+    --stone:#566159;
+    --line:#DFE3DC;
+    --gold:#C9A24B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .serif{font-family:'Fraunces',Georgia,serif;}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px;}
+
+  /* top bar */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,246,.88);
+    backdrop-filter:saturate(180%) blur(12px);
+    -webkit-backdrop-filter:saturate(180%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{max-width:680px;margin:0 auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'Fraunces',serif;font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink);text-decoration:none;}
+  .logo .sec{color:var(--gold);}
+  .logo .eq{color:var(--emerald);font-weight:600;}
+  .bar-btn{
+    background:var(--emerald);color:#fff;border:none;cursor:pointer;
+    font-family:'Inter';font-weight:600;font-size:13.5px;
+    padding:9px 18px;border-radius:999px;
+    transition:background .2s,transform .2s;
+    text-decoration:none;display:inline-block;
+  }
+  .bar-btn:hover{background:var(--emerald-dark);transform:translateY(-1px);color:#fff;text-decoration:none;}
+
+  /* eyebrow */
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--emerald);margin-bottom:20px;
+  }
+  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;
+    animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  /* hero */
+  .hero{padding:46px 0 8px;}
+  h1.head{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:clamp(33px,8vw,52px);line-height:1.04;letter-spacing:-.02em;
+    color:var(--ink);margin-bottom:22px;
+  }
+  h1.head .accent{color:var(--emerald);font-style:italic;}
+  .lede{font-size:clamp(17px,4.4vw,20px);color:var(--ink);margin-bottom:18px;font-weight:400;}
+  .muted{color:var(--stone);font-size:clamp(15.5px,4vw,17px);margin-bottom:16px;}
+
+  /* speed dial */
+  .speed{
+    margin:30px 0 26px;padding:22px 22px 20px;
+    background:linear-gradient(160deg,var(--forest),var(--emerald-dark));
+    border-radius:16px;color:#fff;position:relative;overflow:hidden;
+  }
+  .speed::after{
+    content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;
+    background:radial-gradient(circle,rgba(201,162,75,.22),transparent 70%);
+  }
+  .speed .row{display:flex;align-items:center;gap:14px;position:relative;z-index:1;}
+  .speed .old{flex:1;}
+  .speed .old .n{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:#9DBCA9;text-decoration:line-through;text-decoration-color:rgba(201,162,75,.8);}
+  .speed .old .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#9DBCA9;}
+  .speed .arrow{color:var(--gold);font-size:22px;}
+  .speed .new{flex:1;text-align:right;}
+  .speed .new .n{font-family:'Fraunces',serif;font-size:38px;font-weight:700;color:#fff;line-height:1;}
+  .speed .new .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#BFE0CD;}
+  .speed .cap{position:relative;z-index:1;margin-top:14px;font-size:13.5px;color:#CFE5D8;border-top:1px solid rgba(255,255,255,.14);padding-top:12px;}
+
+  .checks{list-style:none;margin:24px 0;}
+  .checks li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;font-size:16.5px;color:var(--ink);}
+  .checks .ic{flex:none;width:24px;height:24px;border-radius:50%;background:var(--sage);color:var(--emerald);
+    display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:1px;}
+
+  /* CTA button */
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;
+    background:var(--emerald);color:#fff;border:none;cursor:pointer;
+    font-family:'Inter';font-weight:600;font-size:17px;
+    padding:17px 26px;border-radius:14px;
+    box-shadow:0 10px 24px -8px rgba(30,122,77,.55);
+    transition:transform .18s,box-shadow .18s,background .2s;
+    text-decoration:none;
+  }
+  .cta:hover{background:var(--emerald-dark);transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(30,122,77,.6);color:#fff;text-decoration:none;}
+  .cta .ar{transition:transform .2s;}
+  .cta:hover .ar{transform:translateX(4px);}
+  .cta-sub{text-align:center;font-size:12.5px;color:var(--stone);margin-top:11px;}
+
+  /* sections */
+  section.block{padding:34px 0;}
+  h2.sec{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(25px,6vw,34px);line-height:1.1;letter-spacing:-.015em;margin-bottom:18px;color:var(--ink);}
+  p.body{font-size:16.5px;color:var(--ink);margin-bottom:16px;}
+  p.body.dim{color:var(--stone);}
+
+  .pull{
+    border-left:3px solid var(--gold);background:var(--sage);
+    padding:20px 22px;border-radius:0 12px 12px 0;margin:24px 0;
+    font-size:17px;color:var(--forest);
+  }
+  .pull b{color:var(--emerald);}
+
+  /* amounts */
+  .amts{background:var(--ink);border-radius:16px;padding:24px 20px;margin:24px 0;}
+  .amts .t{color:#9DBCA9;font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;text-align:center;}
+  .amts .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  .amts .g{text-align:center;padding:12px 4px;background:rgba(255,255,255,.04);border-radius:10px;}
+  .amts .g .n{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(18px,5vw,24px);color:#fff;line-height:1;}
+  .amts .g .n.hl{color:var(--gold);}
+  @media(max-width:430px){.amts .grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* feature cards */
+  .feat{display:flex;gap:15px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px;margin-bottom:13px;transition:border-color .2s,transform .2s;}
+  .feat:hover{border-color:var(--sage-deep);transform:translateY(-2px);}
+  .feat .em{flex:none;width:46px;height:46px;border-radius:12px;background:var(--sage);display:grid;place-items:center;font-size:22px;}
+  .feat h3{font-family:'Fraunces',serif;font-weight:600;font-size:18px;margin-bottom:4px;color:var(--ink);}
+  .feat p{font-size:15px;color:var(--stone);margin:0;}
+
+  /* list rows */
+  .rows{list-style:none;margin:18px 0;}
+  .rows li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);font-size:16.5px;}
+  .rows li:last-child{border-bottom:none;}
+  .rows .ck{flex:none;color:var(--emerald);font-weight:700;margin-top:1px;}
+
+  /* denied callout */
+  .denied{background:linear-gradient(160deg,#fff,var(--sage));border:1px solid var(--sage-deep);border-radius:16px;padding:26px 22px;margin:8px 0;}
+  .denied h2{margin-bottom:12px;}
+
+  /* dark final */
+  .final{background:linear-gradient(160deg,var(--forest),var(--emerald-dark));border-radius:20px;padding:34px 24px;text-align:center;color:#fff;margin:8px 0;position:relative;overflow:hidden;}
+  .final::before{content:"";position:absolute;left:-50px;bottom:-50px;width:180px;height:180px;background:radial-gradient(circle,rgba(201,162,75,.18),transparent 70%);}
+  .final h2{color:#fff;position:relative;z-index:1;}
+  .final p{color:#CFE5D8;position:relative;z-index:1;margin-bottom:22px;font-size:16px;}
+  .final .cta{position:relative;z-index:1;background:#fff;color:var(--forest);box-shadow:0 12px 28px -10px rgba(0,0,0,.5);}
+  .final .cta:hover{background:var(--gold);color:var(--ink);}
+  .final .cta-sub{color:#9DBCA9;position:relative;z-index:1;}
+
+  /* FAQ */
+  details{border:1px solid var(--line);border-radius:12px;padding:0;margin-bottom:11px;background:#fff;overflow:hidden;}
+  summary{font-family:'Fraunces',serif;font-weight:600;font-size:16.5px;color:var(--ink);padding:16px 18px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"+";color:var(--emerald);font-size:22px;font-family:'Inter';transition:transform .2s;flex:none;}
+  details[open] summary::after{transform:rotate(45deg);}
+  details .ans{padding:0 18px 16px;color:var(--stone);font-size:15.5px;}
+
+  /* trust strip */
+  .trust{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;padding:22px 0 4px;}
+  .trust span{font-size:12.5px;color:var(--stone);display:inline-flex;align-items:center;gap:6px;}
+  .trust span::before{content:"●";color:var(--emerald);font-size:8px;}
+
+  /* byline */
+  .byline{display:flex;align-items:center;gap:12px;padding:14px 0 26px;border-bottom:1px solid var(--line);margin-bottom:8px;}
+  .byline .av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),var(--forest));display:grid;place-items:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;font-size:17px;flex:none;}
+  .byline .meta b{display:block;font-size:14.5px;color:var(--ink);}
+  .byline .meta span{font-size:13px;color:var(--stone);}
+
+  /* footer */
+  footer{background:var(--ink);color:#8A968D;padding:32px 0 40px;margin-top:38px;}
+  footer .wrap{text-align:center;}
+  footer .fl{font-family:'Fraunces',serif;font-size:17px;color:#fff;margin-bottom:14px;}
+  footer .fl .sec{color:var(--gold);}
+  footer p{font-size:11.5px;line-height:1.7;color:#6E796F;}
+
+  /* sticky mobile CTA */
+  .sticky-cta{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:rgba(251,250,246,.94);backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);padding:11px 16px calc(11px + env(safe-area-inset-bottom));
+    transform:translateY(120%);transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .sticky-cta.show{transform:translateY(0);}
+  .sticky-cta .cta{padding:14px;font-size:16px;}
+  @media(min-width:720px){.sticky-cta{display:none;}}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+  .rv.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none;}.dot{animation:none;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="logo">60 <span class="sec">Second</span> <span class="eq">Equity</span></a>
+    <a href="heloc-form.html" class="bar-btn">Check Now</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="byline">
+    <div class="av">RS</div>
+    <div class="meta">
+      <b>Digital HELOC Guide</b>
+      <span>By Richard Steele · 5 min read</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <span class="kicker"><span class="dot"></span>Homeowners are quietly checking this</span>
+    <h1 class="head">Wait — why does it take 30–60 days to access <span class="accent">your own equity?</span></h1>
+    <p class="lede">You already own the house. You already built the equity. So why does it still take weeks just to use it?</p>
+    <p class="muted">Paperwork. Appraisals. Bank delays. Endless back-and-forth. That's how it <em>used</em> to work.</p>
+
+    <div class="speed">
+      <div class="row">
+        <div class="old">
+          <div class="n">30–60</div>
+          <div class="l">days, old way</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="new">
+          <div class="n">3–5</div>
+          <div class="l">days, digital</div>
+        </div>
+      </div>
+      <div class="cap">A fully digital HELOC can skip most of the old process — no full refinance, no replacing your current mortgage.</div>
+    </div>
+
+    <ul class="checks">
+      <li><span class="ic">✓</span><span>Keep your current mortgage rate</span></li>
+      <li><span class="ic">✓</span><span>No full refinance needed</span></li>
+      <li><span class="ic">✓</span><span>Check your options in about 60 seconds</span></li>
+    </ul>
+
+    <a class="cta" href="heloc-form.html">Check What You May Qualify For <span class="ar">→</span></a>
+    <div class="cta-sub">Fast digital check · No obligation · Availability varies</div>
+  </section>
+
+  <section class="block rv">
+    <h2 class="sec">Here's what most homeowners don't realize</h2>
+    <p class="body">You don't always need to blow up your current mortgage just to access the equity you already built.</p>
+    <p class="body dim">With the right HELOC, you may be able to open a separate line of credit on top of your home — while your first mortgage stays exactly where it is. Your rate stays locked. Your payment stays the same.</p>
+    <div class="pull">If you locked in a low rate, this matters. <b>You keep that rate</b> and still get access to your cash.</div>
+
+    <div class="amts">
+      <div class="t">Amounts homeowners are checking for</div>
+      <div class="grid">
+        <div class="g"><div class="n">$50K</div></div>
+        <div class="g"><div class="n">$150K</div></div>
+        <div class="g"><div class="n">$300K</div></div>
+        <div class="g"><div class="n hl">$750K+</div></div>
+      </div>
+    </div>
+
+    <a class="cta" href="heloc-form.html">See If You May Qualify <span class="ar">→</span></a>
+    <div class="cta-sub">Takes about 60 seconds</div>
+  </section>
+
+  <section class="block rv">
+    <h2 class="sec">What makes this different</h2>
+    <div class="feat"><div class="em">⚡</div><div><h3>Funds in as little as 3–5 days</h3><p>Some qualified homeowners go from application to funds in days — not 45, not 60.</p></div></div>
+    <div class="feat"><div class="em">🏠</div><div><h3>No traditional appraisal delay</h3><p>Automated valuation estimates your home digitally instead of waiting on an appraiser.</p></div></div>
+    <div class="feat"><div class="em">💰</div><div><h3>Access cash without refinancing</h3><p>A separate line on top of your home — you're not replacing your existing mortgage.</p></div></div>
+    <div class="feat"><div class="em">📊</div><div><h3>Real cash flow may count</h3><p>If tax returns don't show the full picture, some options review your actual bank deposits.</p></div></div>
+    <div class="feat"><div class="em">🧠</div><div><h3>Use only what you need</h3><p>Draw what you need, leave the rest available. In many cases you only pay interest on what you use.</p></div></div>
+  </section>
+
+  <section class="block rv">
+    <h2 class="sec">Why homeowners are checking now</h2>
+    <p class="body dim">People are realizing they may not have to give up their current mortgage rate just to access cash.</p>
+    <ul class="rows">
+      <li><span class="ck">✓</span> Pay off high-interest credit cards</li>
+      <li><span class="ck">✓</span> Lower monthly payment pressure</li>
+      <li><span class="ck">✓</span> Fund repairs, renovations, or an ADU</li>
+      <li><span class="ck">✓</span> Pull cash for investments or business</li>
+      <li><span class="ck">✓</span> Get liquidity without selling assets</li>
+    </ul>
+    <a class="cta" href="heloc-form.html">Check Your Options <span class="ar">→</span></a>
+    <div class="cta-sub">No obligation · Digital process</div>
+  </section>
+
+  <section class="block rv">
+    <div class="denied">
+      <h2 class="sec">And if you've been denied before…</h2>
+      <p class="body">This is where it gets interesting.</p>
+      <p class="body dim" style="margin-bottom:0;">Some options look at <strong>real cash flow</strong>, not just tax returns. If your returns don't show the full picture, or your income isn't traditional, it may still be worth checking what options exist.</p>
+    </div>
+  </section>
+
+  <section class="block rv">
+    <h2 class="sec">This tends to work best for homeowners who…</h2>
+    <ul class="rows">
+      <li><span class="ck">✓</span> Own a home with available equity</li>
+      <li><span class="ck">✓</span> Want cash without a full refinance</li>
+      <li><span class="ck">✓</span> Want to keep their current mortgage rate</li>
+      <li><span class="ck">✓</span> May have non-traditional or business income</li>
+      <li><span class="ck">✓</span> Want a faster, digital process</li>
+    </ul>
+    <p class="body dim" style="font-size:14px;">Credit, equity, income, property type, location, and program availability can all affect your options.</p>
+  </section>
+
+  <section class="block rv">
+    <div class="final">
+      <h2 class="sec">Most people never check</h2>
+      <p>That's the only reason they never know what their equity could unlock.</p>
+      <a class="cta" href="heloc-form.html">See What Your Equity May Unlock <span class="ar">→</span></a>
+      <div class="cta-sub">Takes about 60 seconds · Availability varies</div>
+    </div>
+  </section>
+
+  <section class="block rv">
+    <h2 class="sec">Common questions</h2>
+    <details><summary>Will my current mortgage change?</summary><div class="ans">No. Your mortgage stays exactly the same. A HELOC is a separate line of credit based on your equity, layered on top.</div></details>
+    <details><summary>How much might I access?</summary><div class="ans">Often up to a portion of your home's value minus what you still owe. The exact figure is confirmed during your check.</div></details>
+    <details><summary>Do I need perfect credit?</summary><div class="ans">Not perfect — there are minimums, but some programs weigh your actual deposits and cash flow alongside credit.</div></details>
+    <details><summary>Is there a traditional appraisal?</summary><div class="ans">Often no. Many programs use automated valuation models, which is a big reason the process moves so fast.</div></details>
+    <details><summary>Can I get a fixed rate?</summary><div class="ans">Fixed-rate options are commonly available, giving you a predictable payment.</div></details>
+    <details><summary>How fast is funding?</summary><div class="ans">Some qualified homeowners see funds in as little as 3–5 days. Timelines vary and are not guaranteed.</div></details>
+
+    <div class="trust">
+      <span>No obligation</span><span>Digital process</span><span>Keep your rate</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fl">60 <span class="sec">Second</span> Equity</div>
+    <p>60SecondEquity.com is an informational marketing website. This is not a commitment to lend or extend credit. All loans are subject to credit approval, underwriting guidelines, program availability, property eligibility, state availability, and borrower qualification. Not all applicants will qualify. Funding timelines, available loan amounts, rates, terms, and fees may vary by borrower profile, property, lender, and program. Results are not guaranteed. Checking options does not guarantee approval or funding.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="cta" href="heloc-form.html">Check My Options · 60 sec <span class="ar">→</span></a>
+</div>
+
+<script>
+  const sticky = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    sticky.classList.toggle('show', window.scrollY > 620);
+  }, {passive: true});
+
+  const io = new IntersectionObserver((es) => {
+    es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold: .12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
